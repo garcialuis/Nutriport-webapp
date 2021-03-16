@@ -1,6 +1,6 @@
 import { Menu, MenuItem } from '@material-ui/core';
 
-const MenuOptions = ({ anchorEl, onClose }) => {
+const AccountOptions = ({ anchorEl, onClose }) => {
     return (
         <div>
             <Menu
@@ -9,12 +9,11 @@ const MenuOptions = ({ anchorEl, onClose }) => {
                 open={Boolean(anchorEl)}
                 onClose={onClose}
             >
-                <MenuItem onClick={onClose}>Food Items</MenuItem>
-                <MenuItem onClick={onClose}>Activity</MenuItem>
-                <MenuItem onClick={onClose}>Dashboard</MenuItem>
+                <MenuItem onClick={onClose}>My Account</MenuItem>
+                <MenuItem onClick={onClose}>Log Out</MenuItem>
             </Menu>
         </div>
     )
 }
 
-export default MenuOptions
+export default AccountOptions

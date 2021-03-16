@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
-import { Menu, MenuItem } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuOptions from './MenuOptions';
+import AccountOptions from './AccountOptions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
-        textAlign: 'center',
+        textAlign: 'center'
     }
 }));
 
@@ -22,7 +23,8 @@ const Header = () => {
 
     const classes = useStyles();
     const [menuAnchor, setMenuAnchor] = useState(null);
-    const [profileAnchor, setProfileAnchor] = useState(null);
+    const [accountAnchor, setAccountAnchor] = useState(null);
+    const [auth, setAuth] = useState(true);
 
     const handleMenuClick = (event) => {
         setMenuAnchor(event.currentTarget);
@@ -32,33 +34,44 @@ const Header = () => {
         setMenuAnchor(null);
     }
 
+    const handleAccountClick = (event) => {
+        setAccountAnchor(event.currentTarget)
+    }
+
+    const handleAccountClose = () => {
+        setAccountAnchor(null)
+    }
+
     return (
         <div className={classes.root}>
             <AppBar>
                 <Toolbar>
-                    <IconButton 
-                        className={classes.menuButton}
-                        edge='start'
-                        aria-label='menu'
-                        onClick={handleMenuClick}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    {/* <Menu
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                    >
-                        <MenuItem onClick={handleClose}>Food Items</MenuItem>
-                        <MenuItem onClick={handleClose}>Activity</MenuItem>
-                        <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                    </Menu> */}
-                    <MenuOptions anchorEl={menuAnchor} keepMounted open={Boolean(menuAnchor)} onClose={handleMenuClose}/>
+                    {auth && 
+                    <div>
+                        <IconButton 
+                            className={classes.menuButton}
+                            edge='start'
+                            aria-label='menu'
+                            onClick={handleMenuClick}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    </div>}
+                    <MenuOptions anchorEl={menuAnchor} onClose={handleMenuClose}/>
                     <Typography variant='h4' className={classes.title}>
                         Nutriport
                     </Typography>
-                    <Button>ProfileButton</Button>
+                    {auth && 
+                    <div>
+                        <IconButton
+                            className={classes.menuButton}
+                            arial-label='account-menu'
+                            onClick={handleAccountClick}
+                        >
+                            <AccountCircle />
+                        </IconButton>
+                    </div>}
+                    <AccountOptions anchorEl={accountAnchor} onClose={handleAccountClose}/>
                 </Toolbar>
             </AppBar>
         </div>
