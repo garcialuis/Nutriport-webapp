@@ -1,7 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
 import NutriportApp from './components/NutriportApp';
-import './styles/styles.scss';
+// import './styles/styles.scss';
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from './styles/base/theme';
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
   //       </a>
   //     </header>
   //   </div>
-    <NutriportApp />
+    <ThemeProvider theme={theme}>
+      <NutriportApp />
+    </ThemeProvider>
   );
 }
 
