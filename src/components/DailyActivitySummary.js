@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         },
         marginTop: '5rem',
         borderRadius: '.5rem',
-        border: '.15rem solid black'
+        // border: '.15rem solid black'
     },
     activities: {
         // backgroundColor: 'red',
