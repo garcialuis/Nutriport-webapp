@@ -1,5 +1,6 @@
 import React from 'react'
 import DailyActivitySummary from './DailyActivitySummary'
+import FoodItemsPanel from './FoodItemsPanel'
 import Header from './Header'
 
 const NutriportApp = () => {
@@ -7,6 +8,7 @@ const NutriportApp = () => {
         <div>
             <Header />
             <DailyActivitySummary />
+            <FoodItemsPanel />
         </div>
     )
 }
