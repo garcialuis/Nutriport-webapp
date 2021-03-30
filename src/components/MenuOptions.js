@@ -1,4 +1,5 @@
 import { Menu, MenuItem } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const MenuOptions = ({ anchorEl, onClose }) => {
     return (
@@ -9,9 +10,9 @@ const MenuOptions = ({ anchorEl, onClose }) => {
                 open={Boolean(anchorEl)}
                 onClose={onClose}
             >
-                <MenuItem onClick={onClose}>Food Items</MenuItem>
-                <MenuItem onClick={onClose}>Activity</MenuItem>
-                <MenuItem onClick={onClose}>Dashboard</MenuItem>
+                <MenuItem onClick={onClose}><Link to='/test' className='header__menu--option'>Food Items</Link></MenuItem>
+                <MenuItem onClick={onClose}><Link to='/activity' className='header__menu--option'>Activity</Link></MenuItem>
+                <MenuItem onClick={onClose}><Link to='/' className='header__menu--option'>Dashboard</Link></MenuItem>
             </Menu>
         </div>
     )
